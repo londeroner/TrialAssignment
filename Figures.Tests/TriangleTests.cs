@@ -1,14 +1,21 @@
-﻿using System;
+﻿using Figures.Interfaces;
+using System;
 using Xunit;
 
 namespace Figures.Tests
 {
     public class TriangleTests
     {
+        private IFigureService _figureService;
+
+        public TriangleTests() {
+            _figureService = new FigureService();
+        }
+
         [Fact]
         public void FigureService_CalculateFigureArea_TriangleArea()
         {
-            var result = FigureService.CalculateFigureArea(new Triangle(3, 4, 5));
+            var result = _figureService.CalculateFigureArea(new Triangle(3, 4, 5));
 
             Assert.Equal(6, result);
         }

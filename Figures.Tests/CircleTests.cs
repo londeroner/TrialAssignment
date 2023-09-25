@@ -1,15 +1,23 @@
-﻿using System;
+﻿using Figures.Interfaces;
+using System;
 using Xunit;
 
 namespace Figures.Tests
 {
     public class CircleTests
     {
+        private IFigureService _figureService;
+
+        public CircleTests()
+        {
+            _figureService = new FigureService();
+        }
+
         [Fact]
         public void FigureService_CalculateFigureArea_CircleArea()
         {
             var radius = 3;
-            var result = FigureService.CalculateFigureArea(new Circle(radius));
+            var result = _figureService.CalculateFigureArea(new Circle(radius));
 
             Assert.Equal((float)Math.PI * radius * radius, result);
         }

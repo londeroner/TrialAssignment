@@ -1,7 +1,9 @@
-﻿namespace Figures
+﻿using Figures.Interfaces;
+
+namespace Figures
 {
-    public static class FigureService
+    public class FigureService : IFigureService
     {
-        public static float CalculateFigureArea(Figure figure) => figure.CalculateArea();
+        public float CalculateFigureArea(IArea figure) => figure.CalculateArea();
     }
 }
